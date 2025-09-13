@@ -1,0 +1,28 @@
+artifact_path: file:///D:/AIT - Supipi/ML/Assignment 2 - Test/mlruns/1/models/m-530c4fa9237144a69a4b2649af995b1e/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.2
+is_signature_from_type_hint: false
+mlflow_version: 3.3.2
+model_id: m-530c4fa9237144a69a4b2649af995b1e
+model_size_bytes: 11612
+model_uuid: m-530c4fa9237144a69a4b2649af995b1e
+prompts: null
+run_id: 7e7b812fe1214040a4cc30b94ed23be7
+signature:
+  inputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1, 3]}}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-09-12 18:00:50.566438'

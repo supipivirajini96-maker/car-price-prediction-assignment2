@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  dash:
+    command: python3 app.py
+    image: supipi18/ait-ml-dash:a2.0
+    platform: linux/x86_64
+    #remove build as we do not rebuild the image as in docker-compose.yaml
+    #build: 
+      #context: .
+      #dockerfile: .Dockerfile
+    #not mapping also
+    #ports:
+      #- 8050:8050
+    volumes:
+      - ./code:/root/code
+      - ./.vscode-server:/root/.vscode-server
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
+    # This is important for asking Traefik to use your container.
+    labels:
+      # Allow Traefik to talk with your service
+      - traefik.enable=true
+      # Tell Traefik to use port 80
+      - traefik.http.services.dash-st126489.loadbalancer.server.port=80
+      # This config you domain name. By default, your subdomain is dash-st126489
+      # If you which to change the subdomain name, you uncomment the below configuration
+      - traefik.http.routers.dash-st126489.rule=Host(`st126489.ml.brain.cs.ait.ac.th`)
+      # Below is for enable SSL.
+      - traefik.http.routers.dash-st126489.tls=true
+      - traefik.http.routers.dash-st126489.tls.certresolver=production
+      - traefik.http.routers.dash-st126489.entrypoints=websecure
+    # This define network. You would need to keep it like this.
+    networks:
+      - default
+      - traefik_default
+
+# Keep it like this too.
+networks:
+  default:
+  traefik_default:
+    external: true

@@ -1,0 +1,8 @@
+artifact_uri: file:///D:/AIT - Supipi/ML/Assignment 2 - Test/mlruns/1/runs/m-18b065e85f3d4dc888ce9df9768aef36/artifacts
+end_time: 1757749269002
+experiment_id: '1'
+lifecycle_stage: active
+run_id: m-18b065e85f3d4dc888ce9df9768aef36
+start_time: 1757749269002
+status: FINISHED
+user_id: supipi

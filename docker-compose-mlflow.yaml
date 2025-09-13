@@ -1,0 +1,20 @@
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: mlflow
+    ports:
+      - "5000:5000"   # expose MLflow UI on host
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root /mlflow/mlruns
+      --host 0.0.0.0
+      --port 5000
+    networks:
+      - ml-network
+
+networks:
+  ml-network:
+    external: true
