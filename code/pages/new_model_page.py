@@ -87,7 +87,8 @@ def register_new_model_callbacks(app):
                 # Prepare features
                 features = [transmission, max_power]
                 #sample = np.array([[1] + features])
-                sample = np.array([features])
+                sample = np.array([[1] + features], dtype=np.float64) 
+                #sample = np.array([features])
                 # Prediction
                 prediction = predict_car_price_new(sample)
                 return transmission, max_power, f"Predicted Car Price: ${prediction:,.2f}"
