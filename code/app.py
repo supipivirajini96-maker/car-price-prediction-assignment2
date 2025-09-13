@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 
 # Import page layouts
 from pages.new_model_page import new_model_page, register_new_model_callbacks
-from pages.old_model_page import old_model_page
+from pages.old_model_page import old_model_page, register_old_model_callbacks
 
 # Initialize Dash app
 app = Dash(
@@ -102,6 +102,8 @@ def display_page(pathname):
 
 # Register callbacks for new model page
 register_new_model_callbacks(app)
+
+register_old_model_callbacks(app)
 
 # ------------------------------
 # Run the app
